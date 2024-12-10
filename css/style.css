@@ -501,3 +501,19 @@ h6,
     padding-right: 0;
     border-right: none;
 }
+.navbar-brand img {
+    width: auto;
+    height: 110px; 
+}
+
+
+@media screen and (max-width: 576px) {
+    .navbar-brand img {
+        height: 70px; 
+    }
+}
+@media screen and (max-width: 768px) {
+    .navbar-brand img {
+        height: 70px; 
+    }
+}
