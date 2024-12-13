@@ -5,7 +5,7 @@ import { Resend } from 'resend'
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const app = new Elysia()
-  .use(cors())
+  app.use(cors())
   .post('/api/send-email', async ({ body }) => {
     try {
       const { guardian_name, guardian_email, child_name, child_age, message } = body as any;
@@ -33,6 +33,6 @@ const app = new Elysia()
       );
     }
   })
-  .listen(3000);
+  app.listen(4000);
 
-console.log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`);
+console.log(`Elysia is running at ${app.server?.hostname}:${app.server?.port}`);
