@@ -29,6 +29,237 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .program-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+        }
+        .program-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            margin: 10px;
+            padding: 20px;
+            width: calc(23% - 40px); /* Adjusted width for better fit */
+            box-sizing: border-box;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .program-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        .program-card-header {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .program-card-content {
+            padding: 15px;
+            color: #333;
+        }
+        @media (max-width: 768px) {
+            .program-card {
+                width: calc(45% - 40px); /* Adjusted for medium screens */
+            }
+        }
+        @media (max-width: 480px) {
+            .program-card {
+                width: calc(100% - 40px); /* Full width for small screens */
+            }
+        }
+        .achievement-item {
+            background: #FFFFFF;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            border: 2px solid transparent;
+        }
+    
+        .achievement-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+        }
+    
+        .achievement-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 32px;
+        }
+    
+        .achievement-content h3 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+    
+        .achievement-content p {
+            font-size: 16px;
+            margin: 0;
+            font-weight: 500;
+        }
+    
+        .hover-border-primary:hover {
+            border-color: var(--bs-primary) !important;
+        }
+    
+        .hover-border-success:hover {
+            border-color: var(--bs-success) !important;
+        }
+    
+        .hover-border-warning:hover {
+            border-color: var(--bs-warning) !important;
+        }
+    
+        .hover-border-info:hover {
+            border-color: var(--bs-info) !important;
+        }
+    
+        .bg-primary {
+            background-color: var(--bs-primary) !important;
+        }
+    
+        .bg-success {
+            background-color: var(--bs-success) !important;
+        }
+    
+        .bg-warning {
+            background-color: var(--bs-warning) !important;
+        }
+    
+        .bg-info {
+            background-color: var(--bs-info) !important;
+        }
+    
+        .text-primary {
+            color: var(--bs-primary) !important;
+        }
+    
+        .text-success {
+            color: var(--bs-success) !important;
+        }
+    
+        .text-warning {
+            color: var(--bs-warning) !important;
+        }
+    
+        .text-info {
+            color: var(--bs-info) !important;
+        }
+        .founder-image {
+        max-width: 80%;
+        height: auto;
+    }
+
+    @media (max-width: 768px) {
+        .founder-image {
+            max-width: 80%; 
+        }
+    }
+
+
+
+    .card-diamond {
+  position: relative;
+  width: 270px; /* Default width */
+  aspect-ratio: 1 / 1;
+  background-color: var(--color, #007bff); /* Default color */
+  transform: rotate(45deg);
+  overflow: hidden;
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0 auto; /* Center the diamond */
+}
+
+.card-diamond:hover {
+  transform: rotate(50deg) scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-diamond .content {
+  position: absolute;
+  top: 60%;
+  left: 60%;
+  transform: translate(-50%, -50%) rotate(-45deg); /* Reverse the rotation */
+  text-align: center;
+  color: white;
+  padding: 1rem;
+  box-sizing: border-box; /* Ensure padding doesn't overflow */
+  width: 100%; /* Full width for text content */
+  height: 100%; /* Ensures consistent alignment */
+}
+
+.card-diamond p {
+  margin: 0;
+  width: 100%; /* Full width of the diamond */
+  word-wrap: break-word; /* Handle overflow */
+  text-align: center;
+}
+
+.card-diamond h4 {
+  margin: 0 0 0.5rem; /* Adjust heading spacing */
+}
+
+.card-diamond.text-primary {
+  --color: #ee5700;
+}
+
+.card-diamond.text-success {
+  --color: #28a745;
+}
+
+.card-diamond.text-warning {
+  --color: #ffc107;
+}
+
+.card-diamond.text-info {
+  --color: #17a2b8;
+}
+
+@media (max-width: 768px) {
+  .card-diamond {
+    width: 200px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .card-diamond {
+    width: 250px; 
+  }
+
+  .card-diamond .content {
+    padding: 0.5rem; 
+  }
+
+  .card-diamond h4 {
+    font-size: 1.3rem; 
+  }
+
+  .card-diamond p {
+    font-size: 1rem; 
+  }
+}
+
+
+    </style>
+
 </head>
 
 <body>
@@ -292,7 +523,7 @@
                                 <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
                                     Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet
                                 </p>
-                                <a class="btn btn-primary py-3 px-5" href="">Get Started Now<i class="fa fa-arrow-right ms-2"></i></a>
+                                <a class="btn btn-primary w-100 py-3" href="">Get Started Now<i class="fa fa-arrow-right ms-2"></i></a>
                             </div>
                         </div>
                     </div>
@@ -503,6 +734,54 @@
         </div>
         <!-- Classes End -->
 
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.7s">
+                    <h1 class="mb-3">Age-Based Programss</h1>
+                    <p >Our age-specific programs nurture young minds through tailored activities that inspire learning and creativity. Each stage focuses on building essential skills in a safe, fun, and engaging environment.</p>
+                </div>
+                <div class="row g-4 mt-5 ">
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                      <div class="card-diamond text-primary">
+                        <div class="content">
+                          <h4 class="fw-bold text-white">Playgroup</h4>
+                          <p>(1.5 Years)</p>
+                          <p class="text-white">A gathering of children of similar ages, providing a space for them to develop social skills at their own pace.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                      <div class="card-diamond text-success">
+                        <div class="content">
+                          <h4 class="fw-bold text-white">PKG</h4>
+                          <p>(3 Years)</p>
+                          <p class="text-white">Where children develop independence, social skills, and basic concepts through fun activities.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                      <div class="card-diamond text-warning">
+                        <div class="content">
+                          <h4 class="fw-bold text-white">Junior Kindergarten</h4>
+                          <p>(4 Years)</p>
+                          <p class="text-white">Helps children build communication, problem-solving, and social skills through engaging activities.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                      <div class="card-diamond text-info">
+                        <div class="content">
+                          <h4 class="fw-bold text-white">Senior Kindergarten</h4>
+                          <p>(5 Years)</p>
+                          <p class="text-white">Strengthens literacy, numeracy, and critical thinking skills for a confident transition to primary school.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+            </div>
+        </div>
+      
 
         <!-- Appointment Start -->
         <div id="appointment" class="container-xxl py-5">
@@ -626,7 +905,7 @@
             <div class="container">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                     <h1 class="mb-3">Parents Testimonial!</h1>
-                    <p class="text-center">Parents share their satisfaction with the school’s engaging curriculum and the progress their children make academically and socially.</p>
+                    <p>Parents share their satisfaction with the school’s engaging curriculum and the progress their children make academically and socially.</p>
                 </div>
                 <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
                     <div class="testimonial-item bg-light rounded p-5">
@@ -746,106 +1025,6 @@
      
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
-
-    <style>
-        .achievement-item {
-            background: #FFFFFF;
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-            border: 2px solid transparent;
-        }
-    
-        .achievement-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
-        }
-    
-        .achievement-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #FFFFFF;
-            font-size: 32px;
-        }
-    
-        .achievement-content h3 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-    
-        .achievement-content p {
-            font-size: 16px;
-            margin: 0;
-            font-weight: 500;
-        }
-    
-        .hover-border-primary:hover {
-            border-color: var(--bs-primary) !important;
-        }
-    
-        .hover-border-success:hover {
-            border-color: var(--bs-success) !important;
-        }
-    
-        .hover-border-warning:hover {
-            border-color: var(--bs-warning) !important;
-        }
-    
-        .hover-border-info:hover {
-            border-color: var(--bs-info) !important;
-        }
-    
-        .bg-primary {
-            background-color: var(--bs-primary) !important;
-        }
-    
-        .bg-success {
-            background-color: var(--bs-success) !important;
-        }
-    
-        .bg-warning {
-            background-color: var(--bs-warning) !important;
-        }
-    
-        .bg-info {
-            background-color: var(--bs-info) !important;
-        }
-    
-        .text-primary {
-            color: var(--bs-primary) !important;
-        }
-    
-        .text-success {
-            color: var(--bs-success) !important;
-        }
-    
-        .text-warning {
-            color: var(--bs-warning) !important;
-        }
-    
-        .text-info {
-            color: var(--bs-info) !important;
-        }
-        .founder-image {
-        max-width: 80%;
-        height: auto;
-    }
-
-    @media (max-width: 768px) {
-        .founder-image {
-            max-width: 80%; 
-        }
-    }
-    </style>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
