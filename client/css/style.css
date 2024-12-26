@@ -132,11 +132,11 @@ h6,
 @media (max-width: 991.98px) {
     .navbar .navbar-nav .nav-link  {
         margin-right: 0;
-        padding: 5px 0;
+        padding: 2px 0;
     }
 
     .navbar .navbar-nav {
-        margin-top: 5px;
+        margin-top: 2px;
         border-top: 1px solid #EEEEEE;
     }
 }
@@ -503,14 +503,14 @@ h6,
 }
 .navbar-brand img {
     width: auto;
-    height: 110px; 
+    height: 80px; 
 }
 
 
 
 @media screen and (max-width: 768px) {
     .navbar-brand img {
-        height: 50px; 
+        height: 60px; 
     }
     .team-item .team-text {
         width: 180px; 
