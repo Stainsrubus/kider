@@ -364,7 +364,7 @@
                     <a href="https://mokidz.fenix-ninja.in/" target="_blank" class="nav-item nav-link">Parents Login</a>
                     <a href="contact.html" class="nav-item nav-link">Contact Us</a>
                 </div>
-                <a href="#appointment"  class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Admission Open for 2025<i class="fa fa-arrow-right ms-3"></i></a>
+                <a href="index.html#appointment" onclick="closeNavbar()"  class="btn btn-primary rounded-pill px-3 d-block  my-4 lg-my-0">Admission Open for 2025<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
         </nav>
 
@@ -742,7 +742,8 @@
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1 class="mb-3">Weekend Classes</h1>
-                <p>Our school offers state-of-the-art facilities, including safe play areas, well-equipped classrooms, and a nurturing environment. We focus on holistic development through interactive learning tools and creative activities.</p>
+             <h6>Explore Our Weekend Classes</h6>
+             <p>At Mother’s Kidbee Pre School, we offer a wide variety of weekend activities designed to nurture your child’s creativity, intelligence, and physical skills.</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -1563,6 +1564,13 @@
 
         const observer = new IntersectionObserver(startCounters, options);
         counters.forEach(counter => observer.observe(counter));
+
+        function closeNavbar() {
+    var navbar = document.getElementById('navbarCollapse');
+    if (navbar.classList.contains('show')) {
+        navbar.classList.remove('show');
+    }
+}
     </script>
 
 </body>

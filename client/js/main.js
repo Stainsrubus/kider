@@ -72,3 +72,9 @@
     
 })(jQuery);
 
+function closeNavbar() {
+    var navbar = document.getElementById('navbarCollapse');
+    if (navbar.classList.contains('show')) {
+        navbar.classList.remove('show');
+    }
+}
