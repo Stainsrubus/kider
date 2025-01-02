@@ -12,8 +12,8 @@ const app = new Elysia()
 
       const emailResponse = await resend.emails.send({
         from: 'onboarding@resend.dev', 
-        to:'stainsrubus@gmail.com',
-        // to: 'motherskidbee@gmail.com',
+        
+        to: 'motherskidbee@gmail.com',
         subject: 'Appointment Request Received',
         html: `
           <h1>Appointment Details</h1>
