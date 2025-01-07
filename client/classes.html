@@ -691,11 +691,40 @@ height: 260px;
                                         </div>
                                 
                                         <div class="col-12">
-                                            <div class="form-floating">
-                                                <textarea class="form-control border-0" placeholder="Leave a message here" id="message" name="message" style="height: 100px" required></textarea>
-                                                <label for="message">Message</label>
+                                            <div class="form-floating border-0" style="position: relative;">
+                                                <textarea 
+                                                    class="form-control border-0" 
+                                                    placeholder="Leave a message here" 
+                                                    id="message" 
+                                                    name="message" 
+                                                    style="height: 100px; padding-top: 1.5rem; resize: vertical;" 
+                                                    required
+                                                    oninput="handleInputChange()"
+                                                ></textarea>
+                                                <label 
+                                                    for="message" 
+                                                    id="message-label" 
+                                                    style="position: absolute; top: 0.001rem; left: 0.01rem; transition: top 0.001s ease-in-out;">
+                                                    Message
+                                                </label>
                                             </div>
                                         </div>
+                                        
+                                        <script>
+                                            function handleInputChange() {
+                                                const textarea = document.getElementById('message');
+                                                const label = document.getElementById('message-label');
+                                                
+                                                // Check if the content height exceeds 2 lines (adjust for font size, padding, etc.)
+                                                const twoLinesHeight = textarea.scrollHeight > 48; // 48px is approximate height for 2 lines, adjust as needed
+                                                
+                                                if (textarea.scrollHeight > textarea.clientHeight && twoLinesHeight) {
+                                                    label.style.display = 'none'; // Hide label when content exceeds 2 lines
+                                                } else {
+                                                    label.style.display = 'block'; // Show label if content is within 2 lines
+                                                }
+                                            }
+                                        </script>
                                         <div class="col-12">
                                             <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
                                         </div>
