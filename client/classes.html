@@ -624,42 +624,75 @@ height: 260px;
 
 
         <!-- Appointment Start -->
-        <div class="container-xxl py-5">
+        <div id="appointment" class="container-xxl py-5">
             <div class="container">
                 <div class="bg-light rounded">
                     <div class="row g-0">
                         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                             <div class="h-100 d-flex flex-column justify-content-center p-5">
-                                <h1 class="mb-4">Make Appointment</h1>
-                                <form>
+                                <h1 class="mb-4">For Admission</h1>
+                                <form id="appointment-form">
                                     <div class="row g-3">
                                         <div class="col-sm-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="gname" placeholder="Gurdian Name">
-                                                <label for="gname">Gurdian Name</label>
+                                                <input type="text" class="form-control border-0" id="gname" name="guardian_name" placeholder="Guardian Name" required>
+                                                <label for="gname">Guardian Name</label>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-floating">
-                                                <input type="email" class="form-control border-0" id="gmail" placeholder="Gurdian Email">
-                                                <label for="gmail">Gurdian Email</label>
+                                                <input type="email" class="form-control border-0" id="gmail" name="guardian_email" placeholder="Guardian Email" required>
+                                                <label for="gmail">Guardian Email</label>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="cname" placeholder="Child Name">
+                                                <input 
+                                                    type="tel" 
+                                                    class="form-control border-0" 
+                                                    id="mobile" 
+                                                    name="mobile" 
+                                                    placeholder="Mobile Number" 
+                                                    maxlength="10" 
+                                                    pattern="\d{10}" 
+                                                    required
+                                                    onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+                                                    oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                                    title="Please enter a valid 10-digit mobile number">
+                                                <label for="mobile">Mobile Number</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="cname" name="child_name" placeholder="Child Name" required>
                                                 <label for="cname">Child Name</label>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="cage" placeholder="Child Age">
+                                                <input type="text" class="form-control border-0" id="cage" name="child_age" placeholder="Child Age" required>
                                                 <label for="cage">Child Age</label>
                                             </div>
                                         </div>
+                                       
+                                        
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <select class="form-control form-select bg-white z-5 border-0 pe-5" id="class" name="child_class" required>
+                                                    <option value="" disabled selected>Please Select a class</option>
+                                                    <option value="Pre-Play Group">Pre-Play Group</option>
+                                                    <option value="Play Group">Play Group</option>
+                                                    <option value="Pre KG">Pre KG</option>
+                                                    <option value="Junior Kindergarden">Junior Kindergarden</option>
+                                                    <option value="Senior Kindergarden">Senior Kindergarden</option>
+                                                </select>
+                                                <label for="child_class">Child Class</label>
+                                            </div>
+                                        </div>
+                                
                                         <div class="col-12">
                                             <div class="form-floating">
-                                                <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                                                <textarea class="form-control border-0" placeholder="Leave a message here" id="message" name="message" style="height: 100px" required></textarea>
                                                 <label for="message">Message</label>
                                             </div>
                                         </div>
@@ -668,6 +701,7 @@ height: 260px;
                                         </div>
                                     </div>
                                 </form>
+                                
                             </div>
                         </div>
                         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
@@ -693,7 +727,7 @@ height: 260px;
                     <div class="testimonial-item bg-light rounded p-5">
                         <p class=" testimonial-content">Before enrolling my child in Mother's Kidbee, I tried a couple of other preschools, and I’m so glad I chose this one. I truly feel it was the right decision. My child started his school journey at 18 months, and the staff has always been kind, friendly, and caring. He loves going to school and always prefers being there over staying at home.</p>
                         <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg" style="width: 90px; height: 90px;">
+                            <!-- <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg" style="width: 90px; height: 90px;"> -->
                             <div class="ps-3">
                                 <h3 class="mb-1">Jazlyn</h3>
                                 <!-- <span>Profession</span> -->
@@ -704,7 +738,7 @@ height: 260px;
                     <div class="testimonial-item bg-light rounded p-5">
                         <p class=" testimonial-content">We are so happy with our decision to enroll our 2-year-old son, Fian, in this playschool. The teachers are caring, kind, and create a nurturing environment where he feels safe and loved every day. The activities are fun, engaging, and help him learn and grow in the best way possible.</p>
                         <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg" style="width: 90px; height: 90px;">
+                            <!-- <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg" style="width: 90px; height: 90px;"> -->
                             <div class="ps-3">
                                 <h3 class="mb-1">Mathew Williams</h3>
                                 <!-- <span>Profession</span> -->
@@ -715,7 +749,7 @@ height: 260px;
                     <div class="testimonial-item bg-light rounded p-5">
                         <p class="testimonial-content">We are extremely happy with our decision to enroll our child here. The teachers are caring, patient, and always focused on each child’s growth. The learning activities are engaging, helping our child build confidence and social skills.</p>
                         <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg" style="width: 90px; height: 90px;">
+                            <!-- <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg" style="width: 90px; height: 90px;"> -->
                             <div class="ps-3">
                                 <h3 class="mb-1">George Daniel</h3>
                                 <!-- <span>Profession</span> -->
@@ -735,7 +769,14 @@ height: 260px;
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
                         <h3 class="text-white mb-4">Get In Touch</h3>
-                        <p class="mb-2 text-white-50"><i class="fa fa-map-marker-alt me-3"></i>Shivaji street, Melkarai, Eraniel, Mondaymarket, Neyyoor post</p>
+                        <p class="mb-2 text-white-50 pe-auto">
+                            <a href="https://www.google.com/maps?q=MOTHER'S+KIDBEE+PRE+SCHOOL+-+KIDZEE,+Thingalnagar,+Eraniel" 
+                               target="_blank" 
+                               class="text-decoration-none text-white-50">
+                                <i class="fa fa-map-marker-alt me-3"></i>
+                                Shivaji street, Melkarai, Eraniel, Mondaymarket, Neyyoor post
+                            </a>
+                        </p>
                         <p class="mb-2 text-white-50"><i class="fa fa-phone me-3"></i><a href="tel:+919626525516" class="text-white-50">+91 9626525516</a></p>
                         <p class="mb-2 text-white-50"><i class="fa fa-envelope me-3"></i><a href="mailto:motherskidbee@gmail.com" class="text-white-50">motherskidbee@gmail.com</a></p>
                         <div class="d-flex pt-2">
@@ -825,40 +866,48 @@ height: 260px;
 
     <script>
         document.getElementById("appointment-form").addEventListener("submit", async function (event) {
-            event.preventDefault();
-    
-            const formData = new FormData(this);
-            const data = {
-                guardian_name: formData.get("guardian_name"),
-                guardian_email: formData.get("guardian_email"),
-                child_name: formData.get("child_name"),
-                child_age: formData.get("child_age"),
-                message: formData.get("message"),
-            };
-    
-            try {
-                const response = await fetch("https://kider.onrender.com/api/send-email", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(data),
-                });
-    
-                if (response.ok) {
-                    alert("Email sent successfully!");
-                    this.reset(); 
-                } else {
-                    const error = await response.json();
-                    console.error("Error:", error);
-                    alert("Failed to send email. Please try again.");
-                }
-            } catch (err) {
-                console.error("Error:", err);
-                alert("An error occurred while sending the email.");
-            }
-        });
-    </script>
+     event.preventDefault();
+ 
+     const mobileNumber = document.getElementById("mobile").value;
+     if (mobileNumber.length < 10) {
+         alert("Please enter a valid mobile number");
+         return; 
+     }
+ 
+     const formData = new FormData(this);
+     const data = {
+         guardian_name: formData.get("guardian_name"),
+         guardian_email: formData.get("guardian_email"),
+         mobile: formData.get("mobile"),
+         child_name: formData.get("child_name"),
+         child_age: formData.get("child_age"),
+         child_class: formData.get("child_class"),
+         message: formData.get("message"),
+     };
+ 
+     try {
+         const response = await fetch("https://kider.onrender.com/api/send-email", {
+             method: "POST",
+             headers: {
+                 "Content-Type": "application/json",
+             },
+             body: JSON.stringify(data),
+         });
+ 
+         if (response.ok) {
+             alert("Email sent successfully!");
+             this.reset();
+         } else {
+             const error = await response.json();
+             console.error("Error:", error);
+             alert("Failed to send email. Please try again.");
+         }
+     } catch (err) {
+         console.error("Error:", err);
+         alert("An error occurred while sending the email.");
+     }
+ });
+     </script>
 </body>
 
 </html>

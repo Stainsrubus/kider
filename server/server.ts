@@ -8,19 +8,20 @@ const app = new Elysia()
   app.use(cors())
   .post('/api/send-email', async ({ body }) => {
     try {
-      const { guardian_name, guardian_email, child_name, child_age, message } = body as any;
+      const { guardian_name, guardian_email,mobile, child_name,child_class, child_age, message } = body as any;
 
       const emailResponse = await resend.emails.send({
         from: 'onboarding@resend.dev', 
-        
         to: 'motherskidbee@gmail.com',
         subject: 'Appointment Request Received',
         html: `
           <h1>Appointment Details</h1>
           <p><strong>Guardian Name:</strong> ${guardian_name}</p>
           <p><strong>Guardian Email:</strong> ${guardian_email}</p>
+          <p><strong>Gaurdian Mobile:</strong> ${mobile}</p>
           <p><strong>Child Name:</strong> ${child_name}</p>
           <p><strong>Child Age:</strong> ${child_age}</p>
+          <p><strong>Child Class:</strong> ${child_class}</p>
           <p><strong>Message:</strong> ${message}</p>
         `
       });
