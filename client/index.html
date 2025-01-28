@@ -1437,7 +1437,7 @@
                                         
 
                                         <div class="col-12">
-                                            <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                                            <button id="submit-btn" class="btn btn-primary w-100 py-3" type="submit">Submit</button>
                                         </div>
                                     </div>
                                 </form>
@@ -1545,49 +1545,55 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script>
-       document.getElementById("appointment-form").addEventListener("submit", async function (event) {
-    event.preventDefault();
-
-    const mobileNumber = document.getElementById("mobile").value;
-    if (mobileNumber.length < 10) {
-        alert("Please enter a valid mobile number");
-        return; 
-    }
-
-    const formData = new FormData(this);
-    const data = {
-        guardian_name: formData.get("guardian_name"),
-        guardian_email: formData.get("guardian_email"),
-        mobile: formData.get("mobile"),
-        child_name: formData.get("child_name"),
-        child_age: formData.get("child_age"),
-        child_class: formData.get("child_class"),
-        message: formData.get("message"),
-    };
-
-    try {
-         const response = await fetch("https://kider.onrender.com/api/send-email", {
-            // const response = await fetch("http://localhost:4000/api/send-email", { 
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
+        document.getElementById("appointment-form").addEventListener("submit", async function (event) {
+            event.preventDefault();
+    
+            const mobileNumber = document.getElementById("mobile").value;
+            if (mobileNumber.length < 10) {
+                alert("Please enter a valid mobile number");
+                return; 
+            }
+    
+            const formData = new FormData(this);
+            const data = {
+                guardian_name: formData.get("guardian_name"),
+                guardian_email: formData.get("guardian_email"),
+                mobile: formData.get("mobile"),
+                child_name: formData.get("child_name"),
+                child_age: formData.get("child_age"),
+                child_class: formData.get("child_class"),
+                message: formData.get("message"),
+            };
+    
+            const submitButton = document.getElementById("submit-btn");
+            submitButton.textContent = "Sending...";
+            submitButton.disabled = true;
+            submitButton.style.cursor = "not-allowed";
+    
+            try {
+                const response = await fetch("https://kider.onrender.com/api/send-email", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                });
+    
+                if (response.ok) {
+                    alert("Email sent successfully!");
+                    this.reset();
+                } else {
+                    const error = await response.json();
+                    console.error("Error:", error);
+                    alert("Failed to send email. Please try again.");
+                }
+            } catch (err) {
+                console.error("Error:", err);
+                alert("An error occurred while sending the email.");
+            } finally {
+                submitButton.textContent = "Submit";
+                submitButton.disabled = false;
+                submitButton.style.cursor = "pointer";
+            }
         });
-
-        if (response.ok) {
-            alert("Email sent successfully!");
-            this.reset();
-        } else {
-            const error = await response.json();
-            console.error("Error:", error);
-            alert("Failed to send email. Please try again.");
-        }
-    } catch (err) {
-        console.error("Error:", err);
-        alert("An error occurred while sending the email.");
-    }
-});
     </script>
     
     <script>
